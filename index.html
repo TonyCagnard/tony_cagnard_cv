@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - Tony Cagnard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #f39c12; /* Orange/Jaune de l'exemple */
+            --dark-color: #2c3e50;
+            --text-color: #000000;
+            --light-text-color: #000000;
+            --bg-light: #f8f9fa;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #ffffff;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            -webkit-print-color-adjust: exact;
+        }
+        .cv-container {
+            width: 23cm;
+            height: 31cm; /* Hauteur A4 standard */
+            background: #fff;
+            display: flex;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.15);
+            font-size: 9.5px;
+        }
+        .left-column {
+            width: 35%;
+            background-color: #fff;
+            padding: 25px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+        }
+        .right-column {
+            width: 65%;
+            padding: 25px;
+            box-sizing: border-box;
+        }
+        .section { margin-bottom: 12px; } /* Espacement vertical réduit */
+        .section-title {
+            display: inline-block;
+            font-size: 1.4em;
+            text-transform: uppercase;
+            color: var(--dark-color);
+            font-weight: 700;
+            margin-bottom: 10px; /* Espacement réduit */
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 3px;
+        }
+        .contact-item { display: flex; align-items: center; margin-bottom: 5px; font-size: 1.2em; color: var(--light-text-color); }
+        .contact-item i { color: var(--primary-color); margin-right: 5px; width: 18px; text-align: center; }
+        .skill { margin-bottom: 10px; }
+        .skill-name { font-size: 1.4em; font-weight: 500; margin-bottom: 5px; }
+        .progress-container { background: #ffffff; border-radius: 5px; height: 5px; }
+        .progress-bar { background: var(--primary-color); height: 100%; border-radius: 5px; }
+
+        .logo-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+            padding: 8px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            margin-top: 10px;
+        }
+        .logo-item { display: flex; justify-content: center; align-items: center; height: 35px; }
+        .logo-item i { font-size: 3.5em; }
+        
+        .qualities-list { list-style: none; padding: 0; margin: 0; }
+        .qualities-list li { font-size: 1.4em; color: var(--text-color); margin-bottom: 8px; display: flex; align-items: center; }
+        .qualities-list i { color: var(--primary-color); margin-right: 10px; font-size: 1.2em;}
+
+        .header { display: flex; align-items: center; margin-bottom: 2px; }
+        .photo { width: 75px; height: 75px; border-radius: 0%; background-size: cover; background-position: center; border: 3px solid var(--primary-color); margin-right: 15px; background-image: url('image/image.png'); }
+        .header-text h1 { font-size: 2.8em; margin: 0; line-height: 1.1; color: var(--dark-color); }
+        .header-text h1 span { font-weight: 400; }
+        .objective { background: var(--dark-color); color: white; padding: 5px 10px; font-weight: 500; font-size: 1.2em; margin-bottom: 10px; border-radius: 4px; text-align: center; }
+        .portfolio-link { font-size: 1.2em; margin-bottom: 15px; }
+        .portfolio-link a { color: var(--primary-color); text-decoration: none; font-weight: 500; }
+
+        .right-column .section p { font-size: 1.2em; line-height: 1.4; color: var(--light-text-color); margin-top: 0;}
+        .right-column .section-title { font-size: 1.5em; }
+        .right-column .section-title i { font-size: 1.2em; background-color: var(--primary-color); color: white; border-radius: 50%; width: 20px; height: 20px; display: inline-flex; justify-content: center; align-items: center; }
+
+        .timeline-item { position: relative; padding-left: 18px; margin-bottom: 10px; }
+        .timeline-item::before { content: ''; position: absolute; left: 0; top: 5px; width: 7px; height: 7px; border-radius: 50%; background-color: var(--primary-color); }
+        .timeline-date { font-size: 1.3em; font-weight: 700; color: var(--dark-color); }
+        .timeline-title { font-weight: 500; margin: 0; font-size: 1.3em; color: var(--text-color); }
+        .timeline-location { font-size: 1.2em; color: var(--light-text-color); font-style: italic; }
+        .timeline-item p { font-size: 1.2em; }
+        
+        .loisirs-grid { display: flex; justify-content: space-around; gap: 10px; text-align: center; }
+        .loisir-item { flex-basis: calc(33.333% - 10px); }
+        .loisir-item i { font-size: 2.4em; color: var(--primary-color); margin-bottom:10px; }
+        .loisir-item div { font-size: 1.2em; color: var(--light-text-color); }
+
+        @media print { body { background-color: #fff; padding: 0; } .cv-container { box-shadow: none; height: 100%; } }
+    </style>
+</head>
+<body>
+    <div class="cv-container">
+        <div class="left-column">
+           <section class="section">
+                <div class="contact-item"><i class="fas fa-envelope"></i> tonycagnard554@gmail.com</div>
+                <div class="contact-item"><i class="fas fa-phone"></i> 06 04 51 78 90</div>
+                <div class="contact-item"><i class="fas fa-map-marker-alt"></i> Brie-Comte-Robert, France</div>
+                <!-- LIGNE AJOUTÉE CI-DESSOUS -->
+                <div class="contact-item">
+                    <i class="fab fa-github"></i>
+                    <a href="https://github.com/TonyCagnard" style="color: inherit; text-decoration: none;">github.com/TonyCagnard</a>
+                </div>
+            </section>
+            <section class="section">
+                <h3 class="section-title">Aptitudes</h3>
+                <div class="skill"><div class="skill-name">Installation OS (Windows, Linux)</div><div class="progress-container"><div class="progress-bar" style="width: 90%;"></div></div></div>
+                <div class="skill"><div class="skill-name">Virtualisation (Virtualbox)</div><div class="progress-container"><div class="progress-bar" style="width: 20%;"></div></div></div>
+                <div class="skill"><div class="skill-name">Configuration Réseau (IP)</div><div class="progress-container"><div class="progress-bar" style="width: 35%;"></div></div></div>
+                <div class="skill"><div class="skill-name">Python & Scripting</div><div class="progress-container"><div class="progress-bar" style="width: 30%;"></div></div></div>
+                <div class="skill"><div class="skill-name">HTML & CSS</div><div class="progress-container"><div class="progress-bar" style="width: 70%;"></div></div></div>
+                <div class="skill"><div class="skill-name">Maintenance Hardware</div><div class="progress-container"><div class="progress-bar" style="width: 95%;"></div></div></div>
+                <div class="skill"><div class="skill-name">IA en Prompting</div><div class="progress-container"><div class="progress-bar" style="width: 95%;"></div></div></div>
+            </section>
+            
+            <section class="section">
+                 <div class="logo-grid">
+                    <div class="logo-item" title="Python"><i class="fab fa-python" style="color:#3776AB;"></i></div>
+                    <div class="logo-item" title="Linux"><i class="fab fa-linux" style="color:#000;"></i></div>
+                    <div class="logo-item" title="Windows"><i class="fab fa-windows" style="color:#00A4EF;"></i></div>
+                    <div class="logo-item" title="HTML5"><i class="fab fa-html5" style="color:#E44D26;"></i></div>
+                    <div class="logo-item" title="CSS3"><i class="fab fa-css3-alt" style="color:#1572B6;"></i></div>
+                    <div class="logo-item" title="JavaScript"><i class="fab fa-js-square" style="color:#F7DF1E;"></i></div>
+                </div>
+            </section>
+            
+            <section class="section">
+                <h3 class="section-title">Langues</h3>
+                <div class="skill"><div class="skill-name">Français (Natif)</div><div class="progress-container"><div class="progress-bar" style="width: 100%;"></div></div></div>
+                <div class="skill"><div class="skill-name">Anglais (Technique - B1)</div><div class="progress-container"><div class="progress-bar" style="width: 55%;"></div></div></div>
+            </section>
+            
+            <section class="section">
+                <h3 class="section-title">Qualités</h3>
+                <ul class="qualities-list">
+                    <li><i class="fas fa-check"></i>Motivé</li>
+                    <li><i class="fas fa-check"></i>Ponctuel</li>
+                    <li><i class="fas fa-check"></i>Sérieux</li>
+                    <li><i class="fas fa-check"></i>Curieux</li>
+                </ul>
+            </section>
+            
+            <section class="section">
+                <h3 class="section-title">Défauts</h3>
+                <ul class="qualities-list">
+                    <li><i class="fas fa-times"></i>Manque d'expérience</li>
+                    <li><i class="fas fa-times"></i>Perfectionniste</li>
+                    <li><i class="fas fa-times"></i>Timide au début</li>
+                </ul>
+            </section>
+        </div>
+
+        <div class="right-column">
+            <header class="header">
+                <div class="photo" ></div>
+                
+                <div class="header-text">
+                    <h1>Tony <span>CAGNARD</span></h1>
+                </div>
+            </header>
+            <div class="objective">
+            Recherche d'un contrat en alternance - BTS SIO SISR (2025-2027)<br>
+            <small>(2 semaines en entreprise / 2 semaines en cours)</small>
+            </div>
+            
+            <div class="portfolio-link">
+            <strong>Portfolio :</strong> <a href="https://tonycagnard.github.io/porfolio/" target="_blank">tonycagnard.site (En Développement)</a>
+            </div>
+
+            <section class="section">
+                <h2 class="section-title"><i class="fas fa-user"></i> Résumé</h2>
+                <p>Passionné par le développement, la cybersécurité, l'informatique et l'intelligence artificielle, je souhaite mettre mes compétences en pratique dans des projets concrets. Curieux, motivé et désireux d'apprendre, je recherche une alternance afin de contribuer à des solutions innovantes tout en évoluant dans un environnement stimulant.</p>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title"><i class="fas fa-graduation-cap"></i> Niveau d'études</h2>
+                <div class="timeline-item">
+                    <div class="timeline-date">2022 - 2025 - Baccalauréat Systèmes Numériques (avec obtention)</div>
+                    <div class="timeline-location">Lycée J. Prévert, Combs-la-Ville</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2021 - Diplôme National du Brevet (avec obtention)</div>
+                    <div class="timeline-location">Collège George Brassens</div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title"><i class="fas fa-briefcase"></i> Expériences</h2>
+                 <div class="timeline-item">
+                    <div class="timeline-date">2025 - Stage chez Late Area</div>
+                    <p>Réparation de matériel informatique.</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2024 - Stage Lycée Bougainville</div>
+                    <p>Maintenance, installation d'OS, gestion BIOS/UEFI.</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2023 - Stage Lycée Bougainville</div>
+                    <p>Diagnostic et réparation de pannes hardware & software.</p>
+                </div>
+                 <div class="timeline-item">
+                    <div class="timeline-date">2022 - Stage chez SCC</div>
+                    <p>Première immersion en entreprise et observation des métiers de l'IT.</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2021 - Stage de 3ème - Mathematic Studio</div>
+                    <p>Découverte du design 3D, VFX et montage vidéo.</p>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title"><i class="fas fa-tasks"></i> Projets Notables</h2>
+                <div class="timeline-item">
+                    <h4 class="timeline-title">Lampe LED Philips</h4>
+                    <p>Création d'une lampe LED Philips avec Arduino dans le cadre d'un projet de groupe scolaire.</p>
+                </div>
+                <div class="timeline-item">
+                    <h4 class="timeline-title">Site Web en Django (MythPédia)</h4>
+                    <p>Création d'un site sur les mythologies du monde avec base de données. 
+                        <!-- LIEN AJOUTÉ CI-DESSOUS -->
+                        <em style="margin-left: 8px;">
+                            <a href="https://github.com/TonyCagnard/mythpedia" style="color: var(--primary-color); text-decoration: none; font-weight: 500;">(https://github.com/TonyCagnard/mythpedia)</a>
+                        </em>
+                    </p>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title"><i class="fas fa-palette"></i> Loisirs</h2>
+                <div class="loisirs-grid">
+                    <div class="loisir-item"><i class="fas fa-microchip"></i><div>Build PC</div></div>
+                    <div class="loisir-item"><i class="fas fa-code"></i><div>Développement</div></div>
+                    <div class="loisir-item"><i class="fas fa-gamepad"></i><div>Gaming</div></div>
+                    <div class="loisir-item"><i class="fas fa-landmark"></i><div>Histoire</div></div>
+                    <div class="loisir-item"><i class="fas fa-globe-europe"></i><div>Géographie</div></div>
+                    <div class="loisir-item"><i class="fas fa-table-tennis-paddle-ball"></i><div>Tennis</div></div>
+                </div>
+            </section>
+        </div>
+    </div>
+</body>
+</html>
